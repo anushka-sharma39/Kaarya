@@ -1,0 +1,238 @@
+.rs-form {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 26px;
+  padding: clamp(24px, 4vw, 36px);
+  box-shadow: 0 28px 60px -32px rgba(27, 23, 39, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  animation: rs-rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 150ms;
+}
+
+.rs-form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.rs-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--rs-indigo-soft);
+  margin-bottom: 8px;
+}
+
+.rs-input-wrapper {
+  position: relative;
+}
+
+.rs-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--rs-ink);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(42, 33, 89, 0.15);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.rs-input:focus {
+  background: #ffffff;
+  border-color: var(--rs-indigo);
+  box-shadow: 0 0 0 3px rgba(42, 33, 89, 0.1);
+}
+
+.rs-input.has-error {
+  border-color: var(--rs-terracotta);
+}
+.rs-input.has-error:focus {
+  box-shadow: 0 0 0 3px rgba(196, 98, 60, 0.15);
+}
+
+.rs-error-msg {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--rs-terracotta);
+  margin-top: 6px;
+  animation: rs-fade-in 0.3s ease;
+}
+
+.rs-pwd-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--rs-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.2s;
+}
+
+.rs-pwd-toggle:hover {
+  color: var(--rs-indigo);
+}
+
+.rs-checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+.rs-checkbox {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--rs-indigo);
+  cursor: pointer;
+}
+
+.rs-checkbox-label {
+  font-size: 0.85rem;
+  color: var(--rs-muted);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.rs-submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(120deg, var(--rs-indigo), var(--rs-indigo-soft));
+  box-shadow: 0 10px 20px -10px rgba(42, 33, 89, 0.7);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+.rs-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 24px -10px rgba(42, 33, 89, 0.8);
+}
+
+.rs-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.rs-link-wrap {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--rs-muted);
+}
+
+.rs-link {
+  color: var(--rs-indigo);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 6px;
+  transition: color 0.2s;
+}
+
+.rs-link:hover {
+  color: var(--rs-terracotta);
+}
+
+/* Success Modal */
+.rs-success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(27, 23, 39, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: rs-fade-in 0.3s ease;
+}
+
+.rs-success-modal {
+  background: #fff;
+  padding: 32px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+  animation: rs-pop-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rs-success-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(42, 33, 89, 0.1);
+  color: var(--rs-indigo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.rs-success-title {
+  margin: 0 0 8px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--rs-ink);
+}
+
+.rs-success-text {
+  margin: 0 0 24px;
+  font-size: 0.9rem;
+  color: var(--rs-muted);
+}
+
+.rs-success-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--rs-indigo);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.rs-success-btn:hover {
+  background: var(--rs-indigo-soft);
+}
+
+@keyframes rs-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rs-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

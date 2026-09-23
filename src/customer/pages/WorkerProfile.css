@@ -1,0 +1,167 @@
+.worker-profile-page {
+  padding: 40px 0;
+}
+.worker-profile-page {
+  padding: 40px 0;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.profile-header-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-header-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--motif-block-border);
+  background-size: 44px 100%;
+}
+
+.profile-header-content {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+@media (max-width: 600px) {
+  .profile-header-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.profile-avatar-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--gray-50);
+}
+
+.profile-name {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.profile-role {
+  color: var(--text-secondary);
+}
+
+.profile-stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.profile-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gray-50);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.stat-label {
+  color: var(--text-muted);
+}
+
+.profile-save-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.profile-save-btn:hover {
+  transform: scale(1.05);
+  border-color: #E8425C;
+  color: #E8425C;
+}
+
+.profile-save-btn.saved {
+  color: #E8425C;
+  border-color: #E8425C;
+  background: #FCE7EA;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  background: var(--gray-100);
+  color: var(--text-primary);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.review-item {
+  padding: 16px;
+  background: var(--gray-50);
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sticky-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.pricing-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+}
+
+.profile-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

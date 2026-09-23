@@ -1,0 +1,135 @@
+.mb-section { margin-bottom: 80px; }
+
+.services-search-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--radius-pill);
+}
+
+.services-search-input {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 16px;
+}
+
+.services-search-input input {
+  width: 100%;
+  border: none;
+  font-size: 1.125rem;
+  outline: none;
+}
+
+.text-muted { color: var(--text-muted); }
+
+.services-tabs {
+  display: flex;
+  gap: 16px;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  color: var(--navy);
+}
+
+.tab-btn.active {
+  color: var(--indigo);
+  border-bottom-color: var(--indigo);
+}
+
+.workers-layout {
+  display: flex;
+  gap: 32px;
+}
+
+.workers-list-area {
+  flex: 2;
+}
+
+.workers-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.workers-map-area {
+  flex: 1;
+  padding: 16px;
+}
+
+.mock-map {
+  width: 100%;
+  height: 600px;
+  background: var(--sand-100);
+  opacity: 0.85;
+  background-image: repeating-radial-gradient( circle at 0 0, transparent 0, var(--sand-100) 10px ), repeating-linear-gradient( color-mix(in srgb, var(--surface) 40%, transparent), var(--surface) );
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.map-marker {
+  position: absolute;
+  color: var(--purple);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.map-marker:hover {
+  transform: scale(1.1);
+}
+
+.marker-label {
+  background: var(--white);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+@media (max-width: 992px) {
+  .workers-layout {
+    flex-direction: column;
+  }
+  .workers-map-area {
+    width: 100%;
+  }
+  .mock-map {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-search-container {
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+  }
+  .services-search-input {
+    width: 100%;
+    padding: 12px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .workers-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,238 @@
+.worker-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  position: relative;
+}
+
+/* AI match chip — sits inline above the header, no rotation/overlap */
+.ai-match-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  align-self: flex-start;
+  background: var(--gradient-primary);
+  color: var(--white);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 10px rgba(30, 58, 47, 0.22);
+  margin-bottom: 14px;
+}
+
+.worker-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.worker-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.worker-info {
+  flex-grow: 1;
+  min-width: 0;
+  padding-right: 8px;
+}
+
+.worker-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.0625rem;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.verified-badge {
+  color: var(--mint);
+  flex-shrink: 0;
+}
+
+.worker-role {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.save-worker-btn {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--sand-400);
+  transition: all 0.2s ease;
+  padding: 4px;
+  margin: -4px -4px 0 0;
+}
+
+.save-worker-btn:hover {
+  color: #E8425C;
+  transform: scale(1.1);
+}
+
+.save-worker-btn.saved {
+  color: #E8425C;
+}
+
+.worker-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--sand-100);
+  padding-bottom: 16px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--sand-200);
+}
+
+.worker-details {
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.worker-details p {
+  margin-bottom: 6px;
+  font-size: 0.875rem;
+}
+
+.jobs-completed {
+  color: var(--text-muted);
+}
+
+.worker-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  gap: 8px;
+}
+
+.worker-price {
+  font-weight: 800;
+  color: var(--forest-text);
+  font-size: 0.9375rem;
+  margin-bottom: 0 !important;
+}
+
+.worker-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  margin-bottom: 0 !important;
+}
+
+.availability-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.text-green {
+  color: var(--mint);
+  font-weight: 700;
+}
+
+.text-red {
+  color: #E8425C;
+  font-weight: 700;
+}
+
+/* Actions */
+.worker-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.worker-actions-row {
+  display: flex;
+  gap: 10px;
+}
+
+.wc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  padding: 12px 16px;
+  border-radius: var(--radius-md, 12px);
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.wc-btn-full {
+  width: 100%;
+}
+
+.wc-btn-outline {
+  background: transparent;
+  color: var(--forest-text);
+  border-color: var(--sand-200);
+}
+
+.wc-btn-outline:hover {
+  border-color: var(--earth);
+  color: var(--earth-dark);
+  background: var(--cream-deep);
+}
+
+.wc-btn-primary {
+  background: var(--gradient-primary);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(30, 58, 47, 0.22);
+}
+
+.wc-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(30, 58, 47, 0.28);
+}
+
+.wc-btn-secondary {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--sand-200);
+}
+
+.wc-btn-secondary:hover {
+  border-color: var(--forest-text);
+  color: var(--forest-text);
+  background: var(--cream-deep);
+}
+
+.inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  color: var(--text-muted);
+}

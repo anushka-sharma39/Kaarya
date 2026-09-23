@@ -1,0 +1,67 @@
+.orders-page {
+  padding: 40px 0;
+}
+.orders-page {
+  padding: 40px 0;
+  max-width: 800px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+.filter-btn.active {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px dashed var(--border);
+}
+
+.order-list-card {
+  margin-bottom: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.order-list-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.order-list-header {
+  border-bottom: 1px solid var(--gray-100);
+  padding-bottom: 12px;
+}
+
+.bg-purple-50 { background-color: var(--earth-pale); }
+.bg-blue-50 { background-color: #E7F1EC; }
+.bg-green-50 { background-color: #E5F3EB; }
+.bg-red-50 { background-color: #FCEEF0; }
+
+[data-theme="dark"] .bg-purple-50 { background-color: color-mix(in srgb, var(--earth) 22%, transparent); }
+[data-theme="dark"] .bg-blue-50 { background-color: color-mix(in srgb, var(--sage) 22%, transparent); }
+[data-theme="dark"] .bg-green-50 { background-color: color-mix(in srgb, var(--mint) 22%, transparent); }
+[data-theme="dark"] .bg-red-50 { background-color: color-mix(in srgb, #E8425C 22%, transparent); }

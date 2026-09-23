@@ -1,0 +1,126 @@
+.language-switcher {
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.language-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  color: var(--text-main);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.language-btn:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--gray-400);
+}
+
+.globe-icon {
+  color: var(--blue);
+}
+
+.chevron-icon {
+  color: var(--text-light);
+  transition: transform 0.2s ease;
+}
+
+.chevron-icon.open {
+  transform: rotate(180deg);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  min-width: 140px;
+  z-index: 100;
+  animation: slideDown 0.2s ease-out;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-main);
+  transition: background-color 0.2s;
+}
+
+.language-option:hover {
+  background-color: var(--bg-hover);
+}
+
+.language-option.selected {
+  font-weight: 600;
+  color: var(--blue);
+  background-color: var(--bg-card);
+}
+
+.check-placeholder {
+  width: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Compact (icon-only) variant — matches the round navbar icon buttons so it
+   drops in cleanly beside the location pill / theme toggle. */
+.language-switcher.compact {
+  flex-shrink: 0;
+}
+.language-switcher.compact .language-btn {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  justify-content: center;
+  gap: 0;
+  border: 1.5px solid var(--cream-warm);
+  background: var(--surface);
+  color: var(--ink-soft);
+}
+.language-switcher.compact .language-btn:hover {
+  border-color: var(--sage-light);
+  background: var(--surface);
+  color: var(--forest-text);
+}
+.language-switcher.compact .globe-icon {
+  color: inherit;
+}
+.language-switcher.compact .language-dropdown {
+  right: 0;
+  left: auto;
+  min-width: 150px;
+}

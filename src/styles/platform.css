@@ -1,0 +1,14 @@
+/* Platform-level base: kept intentionally small so neither app is overridden. */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Login gate background — cleared the moment a role app mounts. */
+body.role-login {
+  background-color: #faf6ef;
+}

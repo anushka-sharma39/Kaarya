@@ -1,0 +1,824 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ===== कार्य '26 palette — forest canopy meets warm earth ===== */
+  --forest: #1E3A2F;        /* deep forest green — primary brand */
+  --forest-mid: #2D5444;
+  --forest-text: var(--forest); /* forest used as body text/icon color — re-tuned for contrast in dark mode */
+  --sage: #4A7C6A;          /* sage green — secondary */
+  --sage-light: #6EA88F;
+  --earth: #C8834A;         /* terracotta/earth — accent, CTAs */
+  --earth-dark: #B36F38;
+  --earth-light: #E0A76C;
+  --earth-pale: #FDF0E4;
+  --haldi: var(--earth-light);
+  --mint: #3F8F63;          /* success green, distinct from sage */
+  --turmeric: var(--earth-light);
+  --ink: #111816;           /* near-black ink — headings/dark surfaces */
+  --ink-soft: #2A3530;
+
+  /* legacy palette names kept so existing component code re-themes for free */
+  --marigold: var(--earth);
+  --marigold-dark: var(--earth-dark);
+  --rani: var(--forest);
+  --rani-dark: #14261F;
+  --maroon: var(--sage);
+  --maroon-dark: #3A6656;
+  --royal-indigo: var(--forest-mid);
+  --royal-indigo-dark: var(--forest);
+  --peacock: var(--sage-light);
+  --peacock-dark: var(--sage);
+
+  --white: #ffffff;
+  --cream: #F7F4EE;         /* warm page background */
+  --cream-deep: #EDE8DC;
+  --cream-warm: var(--cream-deep);
+  --mist: #8A9E96;
+  --mist-light: #B8C8C2;
+  --sand-50: #FBF9F5;
+  --sand-100: #EDE8DC;
+  --sand-200: #DDD5C4;
+  --sand-400: #A9A08F;
+  --sand-500: #7C7568;
+  --sand-800: #2A3530;
+
+  --light-lavender: var(--earth-pale);   /* legacy name, now an earth tint */
+  --soft-blue: #E7F1EC;                  /* legacy name, now a sage tint */
+  --gray-50: var(--sand-50);
+  --gray-100: var(--sand-100);
+  --gray-200: var(--sand-200);
+  --gray-400: var(--sand-400);
+  --gray-500: var(--sand-500);
+  --gray-800: var(--sand-800);
+
+  /* legacy tokens mapped onto the new palette so old component code re-themes for free */
+  --navy: var(--ink);
+  --indigo: var(--royal-indigo);
+  --purple: var(--rani);
+  --violet: var(--forest-mid);
+  --blue: var(--peacock);
+
+  --bg-color: var(--cream);
+  --text-main: var(--ink);
+  --text-muted: var(--mist);
+  --text-primary: var(--ink);
+  --text-secondary: var(--mist);
+  --text-tertiary: var(--mist-light);
+  --text-light: var(--mist-light);
+  --text-h: var(--forest);
+
+  --border: var(--sand-200);
+  --surface: var(--white);
+  --surface-hover: var(--cream-deep);
+  --bg-card: var(--white);
+  --bg-hover: var(--cream-deep);
+  --social-bg: var(--sand-100);
+
+  --accent: var(--earth);
+  --accent-bg: var(--earth-pale);
+  --accent-border: var(--earth-light);
+  --purple-light: var(--light-lavender);
+
+  /* glass surfaces (light mode: soft cream glass) */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-blur: 18px;
+
+  --gradient-primary: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+  --gradient-warm: linear-gradient(135deg, var(--earth-light) 0%, var(--earth) 100%);
+  --gradient-royal: linear-gradient(135deg, var(--forest-mid) 0%, var(--forest) 100%);
+  --gradient-peacock: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%);
+  --gradient-heritage: linear-gradient(120deg, var(--forest) 0%, var(--sage) 55%, var(--earth) 100%);
+  --gradient-mesh: radial-gradient(circle at 15% 20%, rgba(74,124,106,0.10) 0, transparent 40%), radial-gradient(circle at 85% 15%, rgba(200,131,74,0.08) 0, transparent 45%), radial-gradient(circle at 50% 90%, rgba(30,58,47,0.06) 0, transparent 45%);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  --shadow-sm: 0 2px 8px rgba(30,58,47,0.07);
+  --shadow-md: 0 8px 24px rgba(30,58,47,0.10);
+  --shadow-lg: 0 20px 48px rgba(30,58,47,0.14);
+  --shadow: var(--shadow-md);
+  --shadow-floating: 0 25px 50px -12px rgba(30,58,47,0.28);
+  --shadow-glow: 0 0 0 1px rgba(200,131,74,0.10), 0 20px 45px -12px rgba(30,58,47,0.30);
+
+  --font-sans: 'Plus Jakarta Sans', 'Noto Sans Devanagari', system-ui, sans-serif;
+  --font-display: 'Fraunces', 'Noto Sans Devanagari', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-deva: 'Noto Sans Devanagari', serif;
+  --font-editorial: 'Fraunces', serif;
+
+  /* ===== motif accents (data-uri SVGs, tinted via currentColor where possible) ===== */
+  --motif-paisley: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M60 14c18 0 30 14 30 30 0 12-7 18-16 24-7 4-12 9-12 17 0 9 8 14 17 14 4 0 8-1 11-3' fill='none' stroke='%234A7C6A' stroke-width='2.5' opacity='0.18'/%3E%3Ccircle cx='60' cy='44' r='6' fill='%23C8834A' opacity='0.16'/%3E%3C/svg%3E");
+  --motif-rangoli-dots: radial-gradient(circle, rgba(74,124,106,0.14) 1.6px, transparent 1.6px);
+  --motif-block-border: repeating-linear-gradient(90deg, var(--forest) 0 10px, var(--sage) 10px 20px, var(--earth-light) 20px 30px, var(--earth) 30px 40px, var(--sage-light) 40px 50px, var(--forest-mid) 50px 60px);
+}
+
+/* ===== Dark mode — "Forest at Night" ===== */
+[data-theme="dark"] {
+  --ink: #F3F6F4;
+  --ink-soft: #D9E2DD;
+
+  --bg-color: #0F1713;
+  --cream: #0F1713;
+  --cream-deep: #16211C;
+  --cream-warm: #16211C;
+
+  --sand-50: #16211C;
+  --sand-100: #1C2A23;
+  --sand-200: #2A3A32;
+  --sand-400: #59685F;
+  --sand-500: #8FA098;
+  --sand-800: #EDF2EF;
+
+  --text-main: #F3F6F4;
+  --text-muted: #A8B8B0;
+  --text-primary: #F3F6F4;
+  --text-secondary: #A8B8B0;
+  --text-tertiary: #7E9088;
+  --text-light: #7E9088;
+  --text-h: #FFFFFF;
+
+  --border: #2A3A32;
+  --surface: #16211C;
+  --surface-hover: #1C2A23;
+  --bg-card: #16211C;
+  --bg-hover: #1C2A23;
+  --social-bg: #1C2A23;
+
+  --light-lavender: #26382E;
+  --soft-blue: #16302A;
+  --accent-bg: #26382E;
+  --accent-border: #3E5648;
+  --purple-light: #26382E;
+
+  --glass-bg: rgba(22, 33, 28, 0.55);
+  --glass-border: rgba(224, 167, 108, 0.14);
+
+  --forest: #2F5A48;        /* lightened a touch so forest-green sections lift off the near-black page bg */
+  --forest-text: #5FB98A;   /* brighter forest for text/icons/borders so they stay legible on dark surfaces */
+  --forest-mid: #3E6C58;
+  --sage-light: #8FBFA8;
+  --earth-light: #EABD8B;
+  --marigold: var(--earth-light);
+  --haldi: var(--earth-light);
+  --peacock: var(--sage-light);
+  --royal-indigo: var(--forest-mid);
+  --rani: #7FBB9C;
+
+  --gradient-mesh: radial-gradient(circle at 15% 20%, rgba(143,191,168,0.16) 0, transparent 42%), radial-gradient(circle at 85% 8%, rgba(234,189,139,0.12) 0, transparent 48%), radial-gradient(circle at 50% 100%, rgba(62,108,88,0.20) 0, transparent 50%);
+
+  --shadow-sm: 0 4px 14px -2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 12px 28px -6px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 48px -10px rgba(0, 0, 0, 0.55);
+  --shadow: var(--shadow-md);
+  --shadow-floating: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 0 1px rgba(234,189,139,0.12), 0 20px 45px -12px rgba(0,0,0,0.6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body:where(.role-customer) {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-image: var(--gradient-mesh);
+  background-attachment: fixed;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ===== Brand-matched text selection ===== */
+::selection {
+  background: var(--earth-light);
+  color: var(--ink);
+}
+[data-theme="dark"] ::selection {
+  color: #16211C;
+}
+
+/* ===== Custom scrollbar (webkit) ===== */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--sand-400);
+  border-radius: 999px;
+  border: 3px solid var(--cream-deep);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sage);
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--sage-light);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sand-400) var(--cream-deep);
+}
+
+/* ===== Scroll-reveal (respects prefers-reduced-motion via the rule below) ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.02s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.14s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.2s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.26s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.32s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal, .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:where(.kaarya-app) a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:where(.kaarya-app) button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+:where(.kaarya-app) ul {
+  list-style: none;
+}
+
+/* Typography */
+:where(.kaarya-app) h1, :where(.kaarya-app) h2, :where(.kaarya-app) h3, :where(.kaarya-app) h4, :where(.kaarya-app) h5, :where(.kaarya-app) h6 {
+  font-family: var(--font-display);
+  color: var(--text-h);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+:where(.kaarya-app) h1 { font-size: 3.5rem; letter-spacing: -0.01em; }
+:where(.kaarya-app) h2 { font-size: 2.5rem; letter-spacing: -0.01em; }
+:where(.kaarya-app) h3 { font-size: 1.75rem; }
+:where(.kaarya-app) h4 { font-size: 1.25rem; }
+
+:where(.kaarya-app) p {
+  color: var(--text-muted);
+  font-size: 1.125rem;
+}
+
+/* Utilities */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-royal {
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.font-editorial { font-family: var(--font-editorial); font-weight: 600; }
+
+/* ===== Motif & decorative utilities ===== */
+
+/* Block-print inspired rainbow strip — use as a top border on hero/cards */
+.motif-block-border {
+  height: 5px;
+  width: 100%;
+  background: var(--motif-block-border);
+  background-size: 60px 100%;
+  border-radius: var(--radius-pill);
+}
+
+/* Rangoli dot-grid watermark, sits behind hero/section content */
+.motif-rangoli-bg {
+  position: relative;
+  isolation: isolate;
+}
+.motif-rangoli-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--motif-rangoli-dots);
+  background-size: 22px 22px;
+  opacity: 0.6;
+  mask-image: radial-gradient(circle at 50% 0%, black 0%, transparent 70%);
+}
+
+/* Paisley corner accent — decorative, non-interactive */
+.motif-paisley-corner {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background-image: var(--motif-paisley);
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Mandala watermark, large soft rotating medallion */
+.motif-mandala {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px dashed color-mix(in srgb, var(--rani) 30%, transparent);
+  pointer-events: none;
+}
+.motif-mandala::before {
+  content: '';
+  position: absolute;
+  inset: 14%;
+  border-radius: 50%;
+  border: 1.5px dotted color-mix(in srgb, var(--marigold) 40%, transparent);
+}
+.motif-mandala::after {
+  content: '';
+  position: absolute;
+  inset: 32%;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--peacock) 30%, transparent);
+}
+.motif-spin-slow {
+  animation: spinSlow 60s linear infinite;
+}
+
+/* Glassmorphism */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.text-purple { color: var(--rani); }
+.text-navy { color: var(--ink); }
+.text-muted { color: var(--text-muted); }
+.text-light-lavender { color: var(--light-lavender); }
+:where(.kaarya-app) .text-white { color: var(--white); }
+.text-green { color: var(--mint); }
+.text-red { color: #E8425C; }
+
+:where(.kaarya-app) .bg-white { background-color: var(--white); }
+
+:where(.kaarya-app) .rounded-lg { border-radius: var(--radius-lg); }
+:where(.kaarya-app) .shadow-md { box-shadow: var(--shadow-md); }
+:where(.kaarya-app) .shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-floating { box-shadow: var(--shadow-floating); }
+
+.mt-section { margin-top: 80px; }
+.mb-section { margin-bottom: 80px; }
+.py-section { padding-top: 80px; padding-bottom: 80px; }
+
+/* Shared empty-state pattern (used across Orders, Saved Workers, Find Worker, Service results) */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  text-align: center;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1.5px dashed var(--sand-200);
+}
+.empty-state svg { opacity: 0.55; }
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: var(--sand-100);
+  color: var(--text-secondary);
+}
+
+.badge-green {
+  background: #E3F9F1;
+  color: #0A9A73;
+}
+
+.badge-orange {
+  background: #FFEEDD;
+  color: var(--marigold-dark);
+}
+
+.badge-pink {
+  background: var(--light-lavender);
+  color: var(--rani-dark);
+}
+
+.badge-indigo {
+  background: color-mix(in srgb, var(--royal-indigo) 14%, transparent);
+  color: var(--forest-text);
+}
+
+.badge-peacock {
+  background: color-mix(in srgb, var(--peacock) 14%, transparent);
+  color: var(--peacock-dark);
+}
+
+.badge-maroon {
+  background: color-mix(in srgb, var(--maroon) 12%, transparent);
+  color: var(--maroon-dark);
+}
+
+.badge-red {
+  background: rgba(232, 66, 92, 0.12);
+  color: #C93552;
+}
+[data-theme="dark"] .badge-red {
+  background: rgba(232, 66, 92, 0.16);
+  color: #F0879A;
+}
+
+/* Buttons */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 8px;
+  font-family: var(--font-sans);
+  overflow: hidden;
+}
+
+/* subtle glossy sweep on hover for filled buttons */
+.btn-primary::after,
+.btn-royal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.btn-primary:hover::after,
+.btn-royal:hover::after {
+  left: 130%;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--white);
+  box-shadow: 0 6px 18px rgba(30, 58, 47, 0.28);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 24px rgba(30, 58, 47, 0.34);
+}
+
+.btn-large {
+  padding: 18px 36px;
+  font-size: 1.125rem;
+}
+
+.btn-royal {
+  background: var(--gradient-royal);
+  color: var(--white);
+  box-shadow: 0 6px 18px rgba(30, 58, 47, 0.28);
+}
+.btn-royal:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 24px rgba(30, 58, 47, 0.34);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--ink);
+  border: 2px solid var(--sand-200);
+}
+
+.btn-secondary:hover {
+  border-color: var(--forest-text);
+  color: var(--forest-text);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--sand-200);
+}
+
+.btn-outline:hover {
+  border-color: var(--earth);
+  color: var(--earth-dark);
+  background: var(--cream-deep);
+}
+
+.btn-icon {
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-lavender);
+  color: var(--forest-text);
+  transition: all 0.2s;
+}
+
+.btn-icon:hover {
+  background: var(--forest);
+  color: var(--white);
+}
+
+.btn-icon.circle {
+  width: 44px;
+  height: 44px;
+}
+
+/* Theme toggle */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--sand-100);
+  color: var(--earth-dark);
+  border: 1px solid var(--border);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.25s ease, color 0.25s ease;
+  flex-shrink: 0;
+}
+.theme-toggle-btn:hover {
+  transform: rotate(-14deg) scale(1.06);
+  background: var(--gradient-warm);
+  color: var(--white);
+}
+[data-theme="dark"] .theme-toggle-btn {
+  color: var(--earth-light);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scanLine {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg); }
+  75% { transform: rotate(4deg); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: floatY 5s ease-in-out infinite;
+}
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--sand-100);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--sand-200);
+}
+
+[data-theme="dark"] .card:hover {
+  box-shadow: var(--shadow-glow);
+  border-color: rgba(143, 191, 168, 0.25);
+}
+
+/* Cards keep their own fast hover-lift transition, but still fade in
+   smoothly (opacity isn't part of .card's transition shorthand above) when
+   used inside a .reveal / .reveal-stagger wrapper. */
+.reveal-stagger > .card,
+.reveal.card {
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Inputs */
+.input-field {
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--sand-200);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.2s;
+  background-color: var(--sand-50);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+}
+
+.input-field:focus {
+  border-color: var(--forest-text);
+  background-color: var(--surface);
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+.input-field:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+}
+[data-theme="dark"] a:focus-visible,
+[data-theme="dark"] button:focus-visible,
+[data-theme="dark"] .input-field:focus-visible {
+  outline-color: var(--sage-light);
+}
+
+/* ===== Dark-mode ambience: soft glows in place of flat black shadows ===== */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-royal {
+  box-shadow: 0 0 0 1px rgba(143, 191, 168, 0.14), 0 10px 28px -6px rgba(0, 0, 0, 0.55);
+}
+[data-theme="dark"] .btn-primary:hover,
+[data-theme="dark"] .btn-royal:hover {
+  box-shadow: 0 0 0 1px rgba(143, 191, 168, 0.22), 0 14px 34px -6px rgba(0, 0, 0, 0.6);
+}
+[data-theme="dark"] .glass,
+[data-theme="dark"] .glass-card {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, var(--shadow-md);
+}
+
+/* Floating support button */
+.floating-support-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 90;
+  padding: 16px 24px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.25s ease;
+}
+
+.floating-support-btn:hover {
+  background: var(--earth);
+  color: var(--white);
+  transform: translateY(-3px) rotate(-2deg);
+}
+
+@media (max-width: 640px) {
+  .floating-support-btn span,
+  .floating-support-btn {
+    padding: 14px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  .btn { padding: 12px 24px; font-size: 1rem; }
+
+  /* Clear the fixed bottom nav bar */
+  .main-content {
+    padding-bottom: 84px;
+  }
+  /* Bottom nav + hamburger menu (Help) cover this; avoid overlapping content */
+  .floating-support-btn {
+    display: none;
+  }
+}
+
+/* ===== Dark-mode contrast fixes for raw Tailwind utility classes =====
+   Several pages use Tailwind's fixed-color utilities (bg-white, bg-gray-50,
+   border-gray-100/200, text-gray-*) which don't participate in the
+   --theme system. These overrides remap them onto theme tokens so text
+   stays readable against backgrounds in dark mode. */
+[data-theme="dark"] .bg-white { background-color: var(--surface) !important; }
+[data-theme="dark"] .bg-gray-50 { background-color: var(--bg-color) !important; }
+[data-theme="dark"] .bg-gray-100 { background-color: var(--sand-100) !important; }
+[data-theme="dark"] .border-gray-100 { border-color: var(--border) !important; }
+[data-theme="dark"] .border-gray-200 { border-color: var(--border) !important; }
+[data-theme="dark"] .text-gray-300 { color: var(--text-tertiary) !important; }
+[data-theme="dark"] .text-gray-400 { color: var(--text-tertiary) !important; }
+[data-theme="dark"] .text-gray-500 { color: var(--text-secondary) !important; }
+[data-theme="dark"] .text-gray-700 { color: var(--text-primary) !important; }
+[data-theme="dark"] input.bg-gray-100,
+[data-theme="dark"] .input-field.bg-gray-100 { background-color: var(--sand-100) !important; color: var(--text-secondary) !important; }
+[data-theme="dark"] .badge-green { background: rgba(63, 143, 99, 0.18); color: #6FD9A6; }

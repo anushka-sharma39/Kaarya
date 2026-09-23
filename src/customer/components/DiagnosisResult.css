@@ -1,0 +1,123 @@
+.diagnosis-result {
+  border: 2px solid var(--light-lavender);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--gray-50) 100%);
+}
+
+.diagnosis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.confidence-badge {
+  background: var(--light-lavender);
+  color: var(--purple);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.diagnosis-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.diagnosis-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.diagnosis-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.diagnosis-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.problem-text {
+  font-size: 1.5rem;
+}
+
+.diagnosis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.diagnosis-box {
+  background: var(--surface);
+  border: 1px solid var(--gray-200);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.box-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.box-value {
+  display: block;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1.1rem;
+}
+
+.diagnosis-action-area {
+  margin-top: 16px;
+}
+
+.suggested-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-200);
+  font-weight: 500;
+}
+
+.diagnosis-disclaimer {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+:where(.kaarya-app) .mt-4 {
+  margin-top: 24px;
+}
+.listen-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: #6d28d9;
+  font-weight: 600;
+  cursor: pointer;
+}
+.listen-btn.speaking {
+  background: rgba(109, 40, 217, 0.1);
+}
